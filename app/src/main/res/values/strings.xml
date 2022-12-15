@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Chess Android</string>
+    <string name="undo">Undo</string>
+    <string name="ai">AI</string>
+    <string name="draw">Draw</string>
+    <string name="resign">Resign</string>
+    <string name="prev">Prev</string>
+    <string name="next">Next</string>
+    <string name="play">Play</string>
+</resources>
