@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.socket.client.Socket;
+
 public class Database implements Serializable {
     private static final long serialVersionUID = 1L;
     public static String storeDir = "dat";
@@ -12,6 +14,7 @@ public class Database implements Serializable {
     public static List<Match> matchesPlayed = new ArrayList<>();
     public static List<Move> currMovesPlayed = null;
     public static int playbackIndex = 0;
+    public static Socket mSocket;
 
     public Database() {
     }

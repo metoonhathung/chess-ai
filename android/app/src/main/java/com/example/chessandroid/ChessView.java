@@ -13,6 +13,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.example.chessandroid.game.Database;
 import com.example.chessandroid.game.Game;
 import com.example.chessandroid.game.Move;
 import com.example.chessandroid.game.Status;
@@ -109,6 +110,7 @@ public class ChessView extends View {
                         prevClicked = false;
                         chessDelegate.setUndoClicked(false);
                         invalidate();
+                        Database.mSocket.emit("make_move", (move.isWhite() ? "white" : "black") + " " + Game.itoa(move.getStartX(), move.getStartY()) + " " + Game.itoa(move.getEndX(), move.getEndY()));
                         if (Game.status != Status.ACTIVE) {
                             chessDelegate.showDialog(this);
                         }

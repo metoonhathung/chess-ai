@@ -2,9 +2,11 @@ package com.example.chessandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.chessandroid.game.Database;
@@ -46,8 +48,28 @@ public class History extends AppCompatActivity {
 
         findViewById(R.id.play_button).setOnClickListener((view) -> {
             Game.initialize();
+            showDialog();
+        });
+    }
+
+    public void showDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Which room do you want to join?");
+        EditText input = new EditText(this);
+        builder.setView(input);
+        builder.setPositiveButton("OK", (dialog, id) -> {
+            String value = input.getText().toString().trim();
+            Bundle bundle = new Bundle();
+            bundle.putString("room_name", value);
+            Intent intent = new Intent(this, Play.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        });
+        builder.setNegativeButton("Cancel", (dialog, id) -> {
             Intent intent = new Intent(this, Play.class);
             startActivity(intent);
         });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
