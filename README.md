@@ -1,6 +1,6 @@
 # Chess Android
 
-[Demo](https://github.com/metoonhathung/chess-android)
+[Demo](https://youtu.be/TWNf3bVXgBk)
 
 Description: An Android application to play Chess game. Single player (Minimax AI) or Multiplayer.
 
